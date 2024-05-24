@@ -61,10 +61,11 @@ Not sure what this meant.
 
 Again, not sure about this. As a tester, I cannot gurantee 100% code coverage-- this is for the person writing the server. I can check for **100% specification coverage** -- that is, all the specifications are tested, manually or automated.
 
+Server Coverage: For the test server, I did try to use the Python coverage tool, but I couldnt get it working in my setup.
 
 **If I Had more time**
 
 * I would try to understand the specifications better, as it's not 100% clear what I'm testing. To write more tests, I need to understand what the server does.
 
 * I would try to get code coverage for my dummy web server working-- I added the library but it wasn't working as expected.
-Server Coverage: For the test server, I did try to use the Python coverage tool, but I couldnt get it working in my setup.
+

@@ -48,8 +48,12 @@ def rest_api_data(method):
     if country_code not in user_allowed_countries[auth.current_user()]:
         return jsonify({"message": "Sorry, user doesnt have permissions to access this country"}), 403
 
-    return_message = f"The server found this message {search_text} for country {country_code} {language_code=}"
-    return jsonify({"message": return_message}),200
+    return_message = f"The server found this message {search_text}"
+    return jsonify({"message": return_message,
+                    "country_code": country_code,
+                    "language_code": language_code
+
+                    }),200
 
 
 if __name__ == '__main__':

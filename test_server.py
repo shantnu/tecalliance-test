@@ -70,22 +70,19 @@ def test_Russia_not_allowed():
 
     assert response.status_code == 403
 
-# Old dummy code used in developement. To be DELETED
+# check a country not in the list
+def test_non_existent_country():
+    params = {
+    'countryCode': 'XX',
+    'languageCode': 'en',
+    'searchText': 'hello india'
+    }
+    response = requests.get(TEST_URL, params=params, auth=HTTPBasicAuth(username1, password1))
 
-# # Make the GET request with basic authentication
-# response = requests.get(TEST_URL, params=params, auth=HTTPBasicAuth(username, password))
+    assert response.status_code == 403
 
-# print('Status Code:', response.status_code)
-# print('Response JSON:', response.json())
+# check with a user who doesnt exist
+def test_user_not_exist():
+    response = requests.get(TEST_URL, auth=HTTPBasicAuth("unknown", password1))
 
-
-
-# # Define the username and password
-
-# # hashed_password = generate_password_hash(password)
-
-# # Make the GET request with basic authentication
-# response = requests.get(TEST_URL, params=params, auth=HTTPBasicAuth(username, password))
-
-# print('Status Code:', response.status_code)
-# print('Response JSON:', response.json())
+    assert response.status_code == 401

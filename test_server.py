@@ -11,14 +11,6 @@ password2 = 'password2'
 username1 = 'user1'
 password1= 'password1'
 
-# Issues with this, so turned it off for now.
-
-# @pytest.fixture(scope='module')
-# def start_flask_server():
-#     process = Process(target=app.run, kwargs={'debug': True})
-#     process.start()
-#     yield
-#     process.terminate()
 
 # This is a dummy test just to check the web server up and running
 def test_home_page():
@@ -86,3 +78,13 @@ def test_user_not_exist():
     response = requests.get(TEST_URL, auth=HTTPBasicAuth("unknown", password1))
 
     assert response.status_code == 401
+
+
+# Issues with this, so turned it off for now.
+
+# @pytest.fixture(scope='module')
+# def start_flask_server():
+#     process = Process(target=app.run, kwargs={'debug': True})
+#     process.start()
+#     yield
+#     process.terminate()

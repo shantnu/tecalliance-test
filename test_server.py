@@ -11,12 +11,14 @@ password2 = 'password2'
 username1 = 'user1'
 password1= 'password1'
 
-@pytest.fixture(scope='module')
-def start_flask_server():
-    process = Process(target=app.run, kwargs={'debug': True})
-    process.start()
-    yield
-    process.terminate()
+# Issues with this, so turned it off for now.
+
+# @pytest.fixture(scope='module')
+# def start_flask_server():
+#     process = Process(target=app.run, kwargs={'debug': True})
+#     process.start()
+#     yield
+#     process.terminate()
 
 # This is a dummy test just to check the web server up and running
 def test_home_page():
@@ -65,10 +67,6 @@ def test_Russia_not_allowed():
     response = requests.get(TEST_URL, params=params, auth=HTTPBasicAuth(username1, password1))
 
     assert response.status_code == 403
-
-
-# # Define the username and password
-
 
 
 # # Make the GET request with basic authentication

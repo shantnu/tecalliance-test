@@ -53,11 +53,13 @@ def test_check_allowed_country():
 
     assert response.status_code == 403
 
+# test a unlogged in user gets an error
 def test_unlogged_in_user():
     response = requests.get(TEST_URL)
 
     assert response.status_code == 401
 
+# test Russia is forbidden
 def test_Russia_not_allowed():
     params = {
     'countryCode': 'RU',
@@ -68,6 +70,7 @@ def test_Russia_not_allowed():
 
     assert response.status_code == 403
 
+# Old dummy code used in developement. To be DELETED
 
 # # Make the GET request with basic authentication
 # response = requests.get(TEST_URL, params=params, auth=HTTPBasicAuth(username, password))
